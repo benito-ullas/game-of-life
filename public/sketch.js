@@ -13,7 +13,7 @@ function make2DArray(col, row) {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(500, 500);
   frameRate(30);
   
   cols = floor(width/res);
