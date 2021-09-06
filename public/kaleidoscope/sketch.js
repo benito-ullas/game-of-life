@@ -29,8 +29,8 @@ function draw() {
   let hu = noise(xoff)*255;
   stroke(hu, 255, 255, 255);
   if (mouseIsPressed) {
-    for( let i=0; i<12; i++) {
-      rotate(360/12);
+    for( let i=0; i<6; i++) {
+      rotate(360/6);
 
       //let d = dist(mx, my, pmx, pmy);
       //let sw = map(d, 0, 20, 20, 1);
