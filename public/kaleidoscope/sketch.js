@@ -1,7 +1,21 @@
+let saveButton;
+let clearButton;
+let Slider;
+let xoff = 0;
+
 function setup() {
-  createCanvas(400,400);
+  createCanvas(800,800);
   background(0);
   angleMode(DEGREES);
+  colorMode(HSB);
+  
+  slider = createSlider(1,32,4, 0.1);
+  
+  saveButton = createButton('save');
+  saveButton.mousePressed( () => save('snowflake.png'));
+  
+  clearButton = createButton('clear');
+  clearButton.mousePressed( () => background(0));
 }
 
 function draw() {
@@ -12,13 +26,15 @@ function draw() {
   let pmx = pmouseX - width/2;
   let pmy = pmouseY - height/2;
   
-  stroke(255, 100);
+  let hu = noise(xoff)*255;
+  stroke(hu, 255, 255, 255);
   if (mouseIsPressed) {
     for( let i=0; i<12; i++) {
       rotate(360/12);
 
-      let d = dist(mx, my, pmx, pmy);
-      let sw = map(d, 0, 20, 20, 1);
+      //let d = dist(mx, my, pmx, pmy);
+      //let sw = map(d, 0, 20, 20, 1);
+      sw = slider.value();
       strokeWeight(sw);
       push();
       line(mx, my, pmx, pmy);
@@ -28,5 +44,6 @@ function draw() {
       
     }
   }
+  xoff += 0.01;
 }
 
