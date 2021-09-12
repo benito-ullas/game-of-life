@@ -16,6 +16,9 @@ app.get('/game_of_life', (req,res) => {
 
 app.get('/kaleidoscope', (req,res) => {
   res.sendFile(path.join(__dirname,'/public/kaleidoscope/index.html'));
+});  
+app.get('/starfield', (req,res) => {
+  res.sendFile(path.join(__dirname,'/public/starfield/index.html'));
 });
 
 app.listen(port, () => console.log(`listening at port ${port}`));
